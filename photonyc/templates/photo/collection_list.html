@@ -1,0 +1,12 @@
+{% extends 'photo/base.html' %} {% block content %}
+<h2>Collections <a href="{% url 'collection_create' %}">(+)</a></h2>
+<ul>
+  {% for collection in collections %}
+  <li>
+    <a href="{% url 'collection_detail' pk=collection.pk %}">
+      {{ collection.name }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

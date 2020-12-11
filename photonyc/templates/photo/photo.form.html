@@ -1,0 +1,7 @@
+{% extends 'photo/base.html' %} {% block content %}
+<h1>New Photo</h1>
+<form method="POST" class="photo-form">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="save btn btn-default">Save</button>
+</form>
+{% endblock %}

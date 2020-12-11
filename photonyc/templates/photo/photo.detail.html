@@ -1,0 +1,7 @@
+{% extends 'photo/base.html' %} {% block content %}
+<h2>
+  {{ photo.title }} <a href="{% url 'photo_edit' pk=photo.pk %}">(edit)</a>
+</h2>
+<h3>By: {{ photo.collection.name }}</h3>
+
+Photo: {{ photo.date }} {% endblock %}

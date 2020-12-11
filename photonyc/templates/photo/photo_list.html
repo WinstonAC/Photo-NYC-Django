@@ -1,0 +1,12 @@
+{% extends 'phot/base.html' %} {% block content %}
+<h3>photo <a href="{% url 'photo_create' %}">(+)</a></h3>
+<ul>
+  {% for photo in photos_max %}
+  <li>
+    <a href="{% url 'photo_detail' pk=photo.pk %}">
+      {{ photo.title }}-{{ photo.album }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

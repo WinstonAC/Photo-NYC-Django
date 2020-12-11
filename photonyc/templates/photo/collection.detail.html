@@ -1,0 +1,16 @@
+<h2>
+  {{ collection.name }}
+  <a href="{% url 'collection_edit' pk=collecton.pk %}">(edit)</a>
+</h2>
+<h4>{{ collection.decription }}</h4>
+
+<img src="{{ collection.photo_url }}" alt="" class="collection-photo" />
+
+<h3>Phots <a href="{% url 'photo_create' %}">(+)</a></h3>
+<ul>
+  {% for photo in collection.photo.all %}
+  <li>
+    <a href="">{{ photo.date }}-{{ photo.title }}-{{ photo.locaiton }}</a>
+  </li>
+  {% endfor %}
+</ul>
