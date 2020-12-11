@@ -1,4 +1,3 @@
-
 from django import forms
 from .models import Collection, Photo
 
@@ -14,4 +13,4 @@ class PhotoForm(forms.ModelForm):
 
     class Meta:
         model = Photo
-        fields = ('date', 'title', 'photo_url', 'locaton',)
+        fields = ('date', 'title', 'photo_url', 'location', 'collection',)

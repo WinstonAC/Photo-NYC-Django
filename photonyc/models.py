@@ -22,10 +22,10 @@ class Photo(models.Model):
     date = models.CharField(max_length=100, )
     title = models.CharField(max_length=100)
     photo_url = models.TextField()
-    loaction = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.date
+        return self.title
 
 
 # def get_absolute_url(self):
