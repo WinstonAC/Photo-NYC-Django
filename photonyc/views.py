@@ -1,9 +1,11 @@
 from .models import Collection, Photo
 from django.shortcuts import render, redirect
 from .forms import CollectionForm, PhotoForm
+from django.views import View
 
 
-def collection_list(request):
+def CollectionList(View):
+    def get(self, request):
     collection = Collection.objects.all()
     return render(request, 'photo/collection_list.html', {'collections': collection})
 
@@ -23,15 +25,18 @@ def photo_detail(request, pk):
     return render(request, 'photo/photo_detail.html', {'photo': photo})
 
 
-def collection_create(request):
-    if request.method == 'POST':
+def CollectionCreate(View):
+    def get(self, request):
+        form = CollectionForm()
+        return render(request, 'photo/collection_form.html', {'form': form})
+
+    def post(self, request):
         form = CollectionForm(request.POST)
         if form.is_valid():
             collection = form.save()
             return redirect('collection_detail', pk=collection.pk)
-    else:
-        form = CollectionForm()
-    return render(request, 'photo/collection_form.html', {'form': form})
+
+        return render(request, 'photo/collection_form.html', {'form': form})
 
 
 def photo_create(request):
