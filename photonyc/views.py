@@ -2,16 +2,34 @@ from .models import Collection, Photo
 from django.shortcuts import render, redirect
 from .forms import CollectionForm, PhotoForm
 from django.views import View
+from rest_framework import generics
+from .serializers import CollectionSerializer, PhotoSerializer
 
 
-# def CollectionList(View):
-#     def get(self, request):
-#         collection = Collection.objects.all()
-#         return render(request, 'photo/collection_list.html', {'collections': collection})
+class CollectionList(generics.ListCreateAPIView):
+    queryset = Collection.objects.all()
+    serializer_class = CollectionSerializer
+
+
+class PhotoDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Photo.objects.all()
+    serializer_class = CollectionSerializer
+
+
+class PhotoList(generics.ListCreateAPIView):
+    queryset = Photo.objects.all()
+    serializer_class = CollectionSerializer
+
+
+class CollectionDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Collection.objects.all()
+    serializer_class = CollectionSerializer
+
 
 def collectionlist(request):
     photos = Collection.objects.all()
     return render(request, 'photo/collection_list.html', {'collections': photos})
+
 
 def photo_list(request):
     photos = Photo.objects.all()
@@ -27,14 +45,10 @@ def photo_detail(request, pk):
     photo = Photo.objects.get(id=pk)
     return render(request, 'photo/photo_detail.html', {'photo': photo})
 
+
 def collection_create(request, pk):
     photo = Collection.objects.get(id=pk)
     return render(request, 'photo/collection_form.html', {'form': form})
-
-# def CollectionCreate(View):
-#     def get(self, request):
-#         form = CollectionForm()
-#         return render(request, 'photo/collection_form.html', {'form': form})
 
     def post(self, request):
         form = CollectionForm(request.POST)

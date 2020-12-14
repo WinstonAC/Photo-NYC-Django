@@ -1,11 +1,12 @@
 from django.urls import path
 from . import views
+from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
-    path('', views.collectionlist, name='collectiton_list'),
-    path('photos/', views.photo_list, name='photo_list'),
-    path('collections/<int:pk>', views.collection_detail, name='collection_detail'),
-    path('photos/<int:pk>', views.photo_detail, name='photo_detail'),
+    path('collections/', views.CollectionList.as_view(), name='collection_list'),
+    path('photos/', views.PhotoList.as_view(), name='photo_list'),
+    path('collections/<int:pk>', views.CollectionDetail.as_view(), name='collection_detail'),
+    path('photos/<int:pk>', views.PhotoDetail.as_view(), name='photo_detail'),
     path('collections/new', views.collection_create, name='collection_create'),
     path('photos/new', views.photo_create, name='photo_create'),
     path('collections/<int:pk>/edit',
