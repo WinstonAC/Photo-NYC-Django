@@ -1,0 +1,1 @@
+web: gunicorn photonyc.wsgi --log-file -
