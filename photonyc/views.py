@@ -2,7 +2,8 @@ from .models import Collection, Photo
 from django.shortcuts import render, redirect
 from .forms import CollectionForm, PhotoForm
 from django.views import View
-from django.views.generic import ListView, DetailView
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
+from django.urls import reverse_lazy
 
 
 class CollectionList(View):
@@ -91,3 +92,18 @@ def collection_delete(request, pk):
 def photo_delete(request, pk):
     Photo.objects.get(id=pk).delete()
     return redirect('photo_list')
+
+
+class PhotoCreate(CreateView):
+    model = Photo
+    fields = ('date', 'title', 'photo_url', 'location', 'collection')
+
+
+class PhotoEdit(UpdateView):
+    model = Photo
+    fields = ('date', 'title', 'photo_url', 'location', 'collection')
+
+
+class PhotoDelete(DeleteView):
+    model = Photo
+    success_url = reverse_lazy('photo_list')
