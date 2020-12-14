@@ -10,7 +10,6 @@ django = "*"
 psycopg2-binary = "*"
 django-extensions = "*"
 ipython = "*"
-djangorestframework = "*"
 
 [requires]
 python_version = "3.9"
