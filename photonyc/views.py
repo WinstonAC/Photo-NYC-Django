@@ -4,17 +4,24 @@ from .forms import CollectionForm, PhotoForm
 from django.views import View
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from django.urls import reverse_lazy
+from rest_framework import generics
+from .serializers import CollectionSerializer
+from .models import Collection
 
 
-class CollectionList(View):
-    def get(self, request):
-        collection = Collection.objects.all()
-        return render(request, 'photo/collection_list.html', {'collections': collection})
+class CollectionList(generics.ListCreateAPIView):
+    queryset = Collection.objects.all()
+    serializer_class = CollectionSerializer
 
 
 class PhotoList(ListView):
     model = Photo
     context_object_name = 'photo'
+
+
+class CollectionDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Collection.objects.all()
+    serializer_class = CollectionSerializer
 
 
 def collection_detail(request, pk):

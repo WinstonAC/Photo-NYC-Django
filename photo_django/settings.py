@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'photonyc',
-    'django_extensions'
+    'django_extensions',
+    'rest_framework',
     ]
 
 MIDDLEWARE = [
@@ -53,7 +54,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'photo_django.urls'
 
-TEMPLATES = [
+TEMPLATES  = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
