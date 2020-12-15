@@ -12,6 +12,7 @@ django-extensions = "*"
 ipython = "*"
 djangorestframework = "*"
 django-heroku = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.9"

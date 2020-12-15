@@ -13,12 +13,12 @@ class CollectionList(generics.ListCreateAPIView):
 
 class PhotoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Photo.objects.all()
-    serializer_class = CollectionSerializer
+    serializer_class = PhotoSerializer
 
 
 class PhotoList(generics.ListCreateAPIView):
     queryset = Photo.objects.all()
-    serializer_class = CollectionSerializer
+    serializer_class = PhotoSerializer
 
 
 class CollectionDetail(generics.RetrieveUpdateDestroyAPIView):

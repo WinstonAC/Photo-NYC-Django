@@ -10,11 +10,6 @@ class Collection(models.Model):
     def __str__(self):
         return self.name
 
-# Create your models here.
-# artist = collection- craete a collection class and add 1 x description text field
-
-# Song = photo
-
 
 class Photo(models.Model):
     collection = models.ForeignKey(
@@ -28,16 +23,3 @@ class Photo(models.Model):
         return self.title
 
 
-# def get_absolute_url(self):
-    #     return reverse('song_detail', kwargs={'pk': self.pk})
-
-
-# class Collection
-# class Song(models.Model):
-#     artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='songs')
-#     title = models.CharField(max_length=100, default='no song title')
-#     album = models.CharField(max_length=100, default='no album title')
-#     preview_url = models.CharField(max_length=200, null=True)
-
-    # def get_absolute_url(self):
-    #     return reverse('song_detail', kwargs={'pk': self.pk})
