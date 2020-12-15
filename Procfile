@@ -1,1 +1,1 @@
-web: gunicorn photo_django.wsgi 
+web: gunicorn photonyc.wsgi 
