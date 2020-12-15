@@ -1,1 +1,1 @@
-web: gunicorn photonyc.wsgi --log-file -
+web: gunicorn photo_django.wsgi 
