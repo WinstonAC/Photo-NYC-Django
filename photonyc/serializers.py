@@ -19,16 +19,16 @@ class CollectionSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class PhotoSerializer(serializers.HyperlinkedModelSerializer):
-    photos = serializers.HyperlinkedRelatedField(
-        view_name='photo_detail',
-        many=True,
-        read_only=True
-    )
-    photo_url = serializers.ModelSerializer.serializer_url_field(
-        view_name='collection_detail'
-    )
+    # photos = serializers.HyperlinkedRelatedField(
+    # view_name='photo_detail',
+    # many=True,
+    # read_only=True)
+
+     collection = serializers.PrimaryKeyRelatedField(
+         queryset=Collection.objects.all())
+
 
     class Meta:
         model = Photo
-        fields = ('date',
-                  'photo_url', 'title', 'location','collection')
+        fields = ('date', 'id',
+                  'photo_url', 'title', 'location', 'collection')
