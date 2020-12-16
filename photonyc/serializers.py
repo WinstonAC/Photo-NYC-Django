@@ -24,7 +24,7 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     # many=True,
     # read_only=True)
 
-     collection = serializers.PrimaryKeyRelatedField(
+    collection = serializers.PrimaryKeyRelatedField(
          queryset=Collection.objects.all())
 
 
