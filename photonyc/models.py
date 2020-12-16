@@ -18,6 +18,7 @@ class Photo(models.Model):
     title = models.CharField(max_length=100)
     photo_url = models.TextField()
     location = models.CharField(max_length=100)
+    # type = models.models.CharField(max_length=50)
 
     def __str__(self):
         return self.title

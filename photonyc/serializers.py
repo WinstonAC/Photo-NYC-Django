@@ -31,4 +31,4 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Photo
         fields = ('date',
-                  'photo_url', 'title', 'location','collections')
+                  'photo_url', 'title', 'location','collection')
