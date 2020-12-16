@@ -15,7 +15,7 @@ class CollectionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Collection
         fields = ('description',
-                  'photo_url', 'name',)
+                  'photo_url', 'name','id')
 
 
 class PhotoSerializer(serializers.HyperlinkedModelSerializer):
