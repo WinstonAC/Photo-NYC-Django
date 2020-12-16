@@ -19,14 +19,14 @@ class CollectionSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class PhotoSerializer(serializers.HyperlinkedModelSerializer):
-    # photos = serializers.HyperlinkedRelatedField(
-    #     view_name='photo_detail',
-    #     many=True,
-    #     read_only=True
-    # )
-    # photo_url = serializers.ModelSerializer.serializer_url_field(
-    #     view_name='collection_detail'
-    # )
+    photos = serializers.HyperlinkedRelatedField(
+        view_name='photo_detail',
+        many=True,
+        read_only=True
+    )
+    photo_url = serializers.ModelSerializer.serializer_url_field(
+        view_name='collection_detail'
+    )
 
     class Meta:
         model = Photo
