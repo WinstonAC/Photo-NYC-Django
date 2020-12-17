@@ -1,9 +1,9 @@
-from .models import Collection, Photo
+from .models import Collection, Photo, Email
 from django.shortcuts import render, redirect
 from .forms import CollectionForm, PhotoForm
 from django.views import View
 from rest_framework import generics
-from .serializers import CollectionSerializer, PhotoSerializer
+from .serializers import CollectionSerializer, PhotoSerializer, EmailSerilaizer
 
 
 class CollectionList(generics.ListCreateAPIView):
@@ -24,6 +24,7 @@ class PhotoList(generics.ListCreateAPIView):
 class CollectionDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Collection.objects.all()
     serializer_class = CollectionSerializer
+    
 
 
 def collectionlist(request):

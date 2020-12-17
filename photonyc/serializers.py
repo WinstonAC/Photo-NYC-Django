@@ -32,3 +32,5 @@ class PhotoSerializer(serializers.HyperlinkedModelSerializer):
         model = Photo
         fields = ('date', 'id',
                   'photo_url', 'title', 'location', 'collection')
+
+class FormSerlizer()

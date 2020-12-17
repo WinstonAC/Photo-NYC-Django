@@ -24,3 +24,10 @@ class Photo(models.Model):
         return self.title
 
 
+class Form(model.Model):
+    autor = models.CharField(max_length=100, )
+    comment = models.CharField(max_length=100, )
+
+
+def_str_(self):
+    return self.comment

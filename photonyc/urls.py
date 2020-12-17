@@ -9,6 +9,7 @@ urlpatterns = [
     path('photos/<int:pk>', views.PhotoDetail.as_view(), name='photo_detail'),
     path('collections/new', views.collection_create, name='collection_create'),
     path('photos/new', views.photo_create, name='photo_create'),
+    path('email/new',views.email_create, name='email_create'),
     path('collections/<int:pk>/edit',
          views.collection_edit, name='collection_edit'),
     path('photos/<int:pk>/edit', views.photo_edit, name='photo_edit'),
